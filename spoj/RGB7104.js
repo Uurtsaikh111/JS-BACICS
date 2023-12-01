@@ -1,12 +1,12 @@
 function findNum(a, b, c, d) {
-  if (a > b && a > c && a > d) {
+  if (a < b && a < c && a < d) {
     console.log(a);
-  } else if (b > a && b > c && b > d) {
+  } else if (b < c && b < d) {
     console.log(b);
-  } else if (c > b && c > a && c > d) {
+  } else if (c < d) {
     console.log(c);
-  } else if (d > b && d > c && d > a) {
+  } else if (d) {
     console.log(d);
   }
 }
-findNum(1, 2, 1, 4);
+findNum(3, 2, 1, 4);

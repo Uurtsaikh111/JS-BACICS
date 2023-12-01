@@ -5,5 +5,5 @@ function findNum(num) {
   let answer = a + b + c;
   return answer;
 }
-let answer = findNum(133);
+let answer = findNum(123);
 console.log(answer);

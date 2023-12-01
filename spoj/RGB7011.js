@@ -3,4 +3,4 @@ function findTime(num) {
   let sec = num % 60;
   console.log(minute, sec);
 }
-let find = findTime(320);
+findTime(320);

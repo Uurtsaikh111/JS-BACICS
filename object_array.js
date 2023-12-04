@@ -14,8 +14,8 @@ console.log(city[2]);
 console.log(city[3]);
 console.log(city[4]);
 console.log(city[5]);
-console.log(city[6]);
 console.log(city[7]);
+console.log(city[6]);
 
 let mongolia = {
   Ulaanbaatar: { Mongol: "3.3m" },

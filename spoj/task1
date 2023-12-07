@@ -1,0 +1,6 @@
+function findReduce(a, b) {
+  for (let i = a; i >= 0; i = i - b) {
+    console.log(i);
+  }
+}
+findReduce(10, 3);

@@ -32,15 +32,12 @@ findIncrease(10, 20, 2);
 //Anhdagch too oloh = true or false; uurtuu bolon 1 toond huvaagdana busad toond huvaagdahgui
 
 function isPrimary1(num1) {
-  if (num1 < 2) return "false";
   for (let i = 2; i <= num1 / 2; i = i + 1) {
     if (num1 % i == 0) return "false";
   }
   return "true";
 }
-
-let answer1 = isPrimary1(2);
-console.log(answer1);
+isPrimary1(5);
 
 //neg toonoos nuguu too hurtelh anhdagch toog arrayd tuuj butsaah
 

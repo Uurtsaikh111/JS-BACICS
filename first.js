@@ -17,8 +17,8 @@ console.log(num1 * num2);
 console.log(num1 / num2);
 console.log(num1 - num2);
 
-let x = 5;
-let answer = (y = x * x + 2 * x + 1);
+let z = 5;
+let answer = (y = z * z + 2 * z + 1);
 console.log(answer);
 
 let num3 = 20;
@@ -56,11 +56,11 @@ if ((birth) => 21) {
 let myBirthYear = 1954;
 console.log(2023 - myBirthYear);
 
-let ourAge = 17;
-if (ourAge > 18) {
-  console.log(" you can drive a car:", ourAge);
+let ourAge1 = 17;
+if (ourAge1 > 18) {
+  console.log(" you can drive a car:", ourAge1);
 } else {
-  console.log("You can't drive a car:", ourAge);
+  console.log("You can't drive a car:", ourAge1);
 }
 
 let ourAge = 17;

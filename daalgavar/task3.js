@@ -39,8 +39,8 @@ function isPrimary1(num1) {
   }
   return true;
 }
-//let answer = isPrimary1(5);
-//console.log(answer);
+let answer = isPrimary1(9);
+console.log(answer);
 
 //neg toonoos nuguu too hurtelh anhdagch toog arrayd tuuj butsaah
 

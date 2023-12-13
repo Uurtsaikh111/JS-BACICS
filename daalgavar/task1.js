@@ -71,6 +71,11 @@ let products = [
   },
 ];
 
+let brandArr = products.filter((a) => {
+  return a.brand == "Apple";
+});
+console.log("brand:", brandArr);
+
 function findExp() {
   let max = products[0].price;
   for (let i = 1; i < products.length; i = i + 1) {
@@ -99,3 +104,5 @@ function setSale(saleAmout) {
 }
 setSale(10);
 console.log(products);
+
+// filter bagaas ih uneteig bugdiig n garga

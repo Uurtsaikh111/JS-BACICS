@@ -71,6 +71,16 @@ let products = [
   },
 ];
 
+let onlyPrices = products.map((a) => a.price);
+
+onlyPrices.sort((a, b) => a - b);
+console.log(("sortofprices;", onlyPrices));
+
+let findPrice = products.filter((a) => {
+  return a.price == 200 || a.price < 1000;
+});
+console.log("price:", findPrice);
+
 let brandArr = products.filter((a) => {
   return a.brand == "Apple";
 });

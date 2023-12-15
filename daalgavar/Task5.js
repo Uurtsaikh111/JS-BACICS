@@ -42,4 +42,9 @@ console.log(findProduct);
 
 //Discounttai product uud deer 2 oos deesh quantity tai product uudiig gargaj ir
 
-//result aa ashiglaj function bicheed dundajiign olood filter dej busad productiig ol
+//result aa ashiglaj function bicheed dundajiign olood filter dej busad productiig ol.
+
+function findAvg(main) {
+  let avg = main.price;
+}
+findAvg(result);

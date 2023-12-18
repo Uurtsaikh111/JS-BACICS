@@ -142,7 +142,11 @@ const bookData = [
 ];
 
 // add summary on object by like this `A captivating book by ${book.author}.`
+let summary = bookData.map((a) => {
+  return { summeryBook: a.title + " by " + a.author };
+});
 
+console.log(summary);
 // find Expensive book more than 16
 function findExp(main, num) {
   let expBook = main.filter((a) => {

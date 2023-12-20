@@ -1,0 +1,20 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+.box {
+  width: 100px;
+  height: 100px;
+  border: solid 1px green;
+}
+
+.boxes {
+  width: 310px;
+  height: 310px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin-top: auto;
+  align-items: center;
+}

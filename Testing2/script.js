@@ -195,36 +195,3 @@ products.map((a) => {
   const ass = createCard(a);
   root.appendChild(ass);
 });
-//const createCard=(prod)=>{
-//let card=document.
-//}
-
-//root.appendChild(cardDiv);
-
-//const cardDiv = document.createElement("div");
-//const cardName = document.createElement("p");
-//const cardPrice = document.createElement("p");
-//const cardBrand = document.createElement("p");
-//const cardImgUrl = document.createElement("img");
-//const cardDescription = document.createElement("p");
-
-//cardDiv.setAttribute("class", "card");
-//cardName.setAttribute("class", "header");
-//cardPrice.setAttribute("class", "price");
-//cardBrand.setAttribute("class", "brand");
-//cardImgUrl.setAttribute("class", "imgcards");
-//cardDescription.setAttribute("class", "Description");
-
-//cardName.innerText = products[0].name;
-//cardPrice.innerText = products[0].price;
-//cardBrand.innerText = products[0].brand;
-//cardImgUrl.src = products[0].image_url;
-//cardDescription.innerText = products[0].description;
-
-//cardDiv.appendChild(cardName);
-//cardDiv.appendChild(cardPrice);
-//cardDiv.appendChild(cardBrand);
-//cardDiv.appendChild(cardImgUrl);
-//cardDiv.appendChild(cardDescription);
-
-//root.appendChild(cardDiv);

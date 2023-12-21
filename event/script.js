@@ -1,73 +1,75 @@
-//document.getElementById
-//document.createElement
-//document.appendChild
-//document.setAttribute
-
-//const cards=document.getElementsByClassName("card");
-//const oneCard= document.querySelectorAll(".card");
-
-//const card=document.querySelector(".card");
-//function cardClick(){
-//console.log("cardClick");
-//}
-//oneCard.addEventListener("click",cardClick)
-
 const root = document.getElementById("root");
 
+const header = document.createElement("div");
+header.setAttribute("class", "head");
+root.appendChild(header);
 const startButton = document.createElement("button");
 startButton.innerText = "Start";
-root.appendChild(startButton);
+const resetButton = document.createElement("button");
+resetButton.innerText = "New game";
+const score = document.createElement("span");
+let chanceNum = 3;
+let scoreNum = 0;
+score.innerText = "Score:" + scoreNum;
+const chance = document.createElement("span");
+// const chanceNum = document.createElement("span");
+// chanceNum.innerText = 3;
+chance.innerText = "Chance:" + chanceNum;
+// chance.appendChild(chanceNum);
 
+header.appendChild(startButton);
+header.appendChild(resetButton);
+header.appendChild(score);
+header.appendChild(chance);
+
+const innerBody = document.createElement("div");
+innerBody.setAttribute("class", "innerBody");
+root.appendChild(innerBody);
 startButton.addEventListener("click", startGame);
+resetButton.addEventListener("click", reset);
+
+function reset() {
+  innerBody.innerHTML = "";
+  //innerBody.appendChild(box);
+}
 
 function startGame() {
-  const boxes = document.createElement("div");
-
+  const box = document.createElement("div");
+  box.setAttribute("class", "box");
   const red = Math.floor(Math.random() * 245) + 10;
   const green = Math.floor(Math.random() * 255);
   const blue = Math.floor(Math.random() * 255);
-  const rand = Math.floor(Math.random() * 8);
+  const diffColor = Math.floor(Math.random() * 8);
   const randomColor = `rgb(${red},${green},${blue})`;
   const differentColor = `rgb(${red - 50},${green},${blue})`;
 
   for (let i = 0; i < 9; i++) {
-    const box = document.createElement("div");
-    box.setAttribute("class", "box");
-    if (i == rand) {
-      box.style.backgroundColor = randomColor;
-    } else box.style.backgroundColor = differentColor;
-    boxes.appendChild(box);
+    const card = document.createElement("div");
+    card.setAttribute("class", "card");
+    card.setAttribute("id", `cardId${i}`);
+
+    if (i == diffColor) {
+      card.style.backgroundColor = randomColor;
+    } else card.style.backgroundColor = differentColor;
+    box.appendChild(card);
   }
-  boxes.setAttribute("class", "boxes");
-  root.appendChild(boxes);
+  innerBody.innerHTML = "";
+  innerBody.appendChild(box);
+  const correctBox = document.getElementById(`cardId${diffColor}`);
+  correctBox.addEventListener("click", startGame);
+  correctBox.addEventListener("click", scoreAdd);
+
+  const incorrectBox = document.getElementById(`cardId${i}`);
+  incorrectBox.addEventListener("click", chanceLower);
+}
+function scoreAdd() {
+  scoreNum = scoreNum + 1;
+  score.innerText = "Score:" + scoreNum;
 }
 
-boxes.innerHTML = "";
-
+function chanceLower() {
+  chanceNum = chanceNum + 1;
+  chance.innerText = "Chance:" + chanceNum;
+}
 //localStorage.setItem("item", "200");
 //console.log(localStorage.getItem("item"));
-
-//unguurn for dotoroo itai temtsuu ued uur ungu bieleh nuhtsuk bicheed else ued busad ungu n garahaar biceh
-
-//function startGame() {
-//const boxes = document.createElement("div");
-//const diffbox = document.createElement("div");
-//const red = Math.floor(Math.random() * 245) + 10;
-//const green = Math.floor(Math.random() * 255);
-//const blue = Math.floor(Math.random() * 255);
-//const randomColor = `rgb(${red},${green},${blue})`;
-//const differentColor = `rgb(${red - 30},${green},${blue})`;
-
-//for (let i = 1; i < 9; i++) {
-//const box = document.createElement("div");
-//box.setAttribute("class", "box");
-//boxes.appendChild(box);
-//box.style.backgroundColor = randomColor;
-//boxes.appendChild(diffbox);
-//}
-//boxes.setAttribute("class", "boxes");
-//diffbox.setAttribute("class", "box");
-
-//diffbox.style.backgroundColor = differentColor;
-//root.appendChild(boxes);
-//}

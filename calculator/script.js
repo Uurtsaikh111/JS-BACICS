@@ -1,0 +1,10 @@
+const root = document.getElementById("root");
+const mainBody = document.createElement("div");
+const header = document.createElement("div");
+const body = document.createElement("div");
+header.setAttribute("class", "head");
+mainBody.setAttribute("class", "mainBody");
+body.setAttribute("class", "body");
+mainBody.appendChild(header);
+mainBody.appendChild(body);
+root.appendChild(mainBody);

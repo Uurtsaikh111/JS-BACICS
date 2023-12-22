@@ -12,10 +12,8 @@ let chanceNum = 3;
 let scoreNum = 0;
 score.innerText = "Score:" + scoreNum;
 const chance = document.createElement("span");
-// const chanceNum = document.createElement("span");
-// chanceNum.innerText = 3;
+
 chance.innerText = "Chance:" + chanceNum;
-// chance.appendChild(chanceNum);
 
 header.appendChild(startButton);
 header.appendChild(resetButton);
@@ -30,12 +28,21 @@ resetButton.addEventListener("click", reset);
 
 function reset() {
   innerBody.innerHTML = "";
-  //innerBody.appendChild(box);
+  scoreNum = 0;
+  score.innerText = "Score:" + scoreNum;
+  chanceNum = 3;
+  chance.innerText = "Chance:" + chanceNum;
 }
 
 function startGame() {
+  chanceNum = 3;
+  chance.innerText = "Chance:" + chanceNum;
+  //scoreNum = 0;
+  //score.innerText = "Score:" + scoreNum;
+
   const box = document.createElement("div");
   box.setAttribute("class", "box");
+
   const red = Math.floor(Math.random() * 245) + 10;
   const green = Math.floor(Math.random() * 255);
   const blue = Math.floor(Math.random() * 255);
@@ -47,29 +54,59 @@ function startGame() {
     const card = document.createElement("div");
     card.setAttribute("class", "card");
     card.setAttribute("id", `cardId${i}`);
-
+    card.addEventListener("click", () => {
+      if (!(diffColor == i)) {
+        chanceNum--;
+        chance.innerText = "Chance:" + chanceNum;
+        if (chanceNum == 0) {
+          const gameOver = document.createElement("img");
+          gameOver.setAttribute("class", "gameOver");
+          gameOver.src =
+            "https:t4.ftcdn.net/jpg/02/11/54/33/360_F_211543376_kv7x0SwdITkWbqajGzglhcvZV25AsPsS.jpg";
+          innerBody.innerHTML = "";
+          innerBody.appendChild(gameOver);
+        }
+      }
+    });
     if (i == diffColor) {
       card.style.backgroundColor = randomColor;
-    } else card.style.backgroundColor = differentColor;
+    } else {
+      card.style.backgroundColor = differentColor;
+    }
+
     box.appendChild(card);
   }
+
   innerBody.innerHTML = "";
   innerBody.appendChild(box);
   const correctBox = document.getElementById(`cardId${diffColor}`);
   correctBox.addEventListener("click", startGame);
-  correctBox.addEventListener("click", scoreAdd);
+  correctBox.addEventListener("click", () => {
+    scoreNum++;
+    score.innerText = "Score:" + scoreNum;
+    if (scoreNum == 6) {
+      const cong = document.createElement("img");
+      cong.setAttribute("class", "cong");
+      cong.src =
+        "https://img.freepik.com/free-vector/card-template-with-fireworks-party-horns_1308-3021.jpg";
 
-  const incorrectBox = document.getElementById(`cardId${i}`);
-  incorrectBox.addEventListener("click", chanceLower);
+      innerBody.innerHTML = "";
+      innerBody.appendChild(cong);
+    }
+  });
 }
 function scoreAdd() {
-  scoreNum = scoreNum + 1;
+  scoreNum++;
   score.innerText = "Score:" + scoreNum;
-}
+  if (scoreNum == 6) {
+    const cong = document.createElement("img");
+    cong.setAttribute("class", "cong");
+    cong.src =
+      "https://img.freepik.com/free-vector/card-template-with-fireworks-party-horns_1308-3021.jpg";
 
-function chanceLower() {
-  chanceNum = chanceNum + 1;
-  chance.innerText = "Chance:" + chanceNum;
+    innerBody.innerHTML = "";
+    innerBody.appendChild(cong);
+  }
 }
 //localStorage.setItem("item", "200");
 //console.log(localStorage.getItem("item"));

@@ -4,18 +4,24 @@
   margin: 0;
 }
 .mainBody {
-  width: 400px;
-  height: 600px;
-  background-color: blueviolet;
-  border-radius: 10px;
+  width: 232px;
+  height: 321px;
+
+  border-radius: 5px;
 }
 .head {
   width: 100%;
-  height: 30%;
+  height: 26%;
+  padding: 20px 20px 8px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  background-color: #222121d5;
+  border-radius: 5px;
 }
 
 .body {
   width: 100%;
-  height: 70%;
+  height: 74%;
   background-color: aqua;
 }

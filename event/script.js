@@ -110,3 +110,47 @@ function scoreAdd() {
 }
 //localStorage.setItem("item", "200");
 //console.log(localStorage.getItem("item"));
+let rightNow = new Date("2022-12-27");
+
+console.log(rightNow);
+console.log(new Date());
+
+const products = [
+  {
+    id: 1,
+    name: "mac",
+    price: 123,
+    stock: 10,
+  },
+  {
+    id: 2,
+    name: "iphone",
+    price: 1234,
+    stock: 10,
+  },
+  {
+    id: 3,
+    name: "tv",
+    price: 12,
+    stock: 10,
+  },
+  {
+    id: 4,
+    name: "hosoo",
+    price: 32,
+    stock: 10,
+  },
+];
+
+let remove = products.filter((a) => {
+  return a.name !== "mac";
+});
+console.log("name:", remove);
+removeProd(2);
+sellProd("iphone", 2);
+
+//id n for guilne id==i
+//
+
+//undsen stock zaragdsan nn hasagddag bh
+//if removed then make new ids

@@ -141,17 +141,36 @@ const products = [
     stock: 10,
   },
 ];
+function sellProd(prod, stock) {
+  const newArr = products.map((a) => {
+    if (a.name == prod) {
+      a.stock = a.stock - stock;
+    }
+    //console.log(a);
+    return a;
+  });
+  console.log(newArr);
+}
+sellProd("iphone", 5);
+//id gaarn tuhain buteegdehuuniig prodoos hasaad ahij id uguh.
+function resetProd(a) {
+  let del = products.filter((prod) => {
+    return prod.id !== a;
+  });
+  for (let i = 0; i < del.length; i++) {
+    del[i].id = i + 1;
+  }
+  console.log(del);
+}
+resetProd(2);
 
+//name eern tuhain buteegdehuuniig hasah
 let remove = products.filter((a) => {
   return a.name !== "mac";
 });
 console.log("name:", remove);
-removeProd(2);
-sellProd("iphone", 2);
 
-//id n for guilne id==i
-//
+// id n for guilne id==i
 
 //undsen stock zaragdsan nn hasagddag bh
 //if removed then make new ids
-

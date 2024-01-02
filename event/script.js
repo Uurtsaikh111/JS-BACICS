@@ -48,7 +48,7 @@ function startGame() {
   const blue = Math.floor(Math.random() * 255);
   const diffColor = Math.floor(Math.random() * 8);
   const randomColor = `rgb(${red},${green},${blue})`;
-  const differentColor = `rgb(${red - 50},${green},${blue})`;
+  const differentColor = `rgb(${red - 10},${green},${blue})`;
 
   for (let i = 0; i < 9; i++) {
     const card = document.createElement("div");

@@ -52,7 +52,7 @@ li {
   cursor: pointer;
 }
 .todoList {
-  /* border: 2px solid red; */
+  border: 2px solid red;
 }
 .todoList li {
   display: flex;

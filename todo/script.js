@@ -54,19 +54,19 @@ let todos = [
     priority: "high",
   },
   {
-    title: "learn javascript2",
+    title: "learn javascript11",
     description: "Learn JAvascript basics",
     status: "inProgress",
     priority: "high",
   },
   {
-    title: "learn javascript3",
+    title: "learn javascript12",
     description: "Learn JAvascript basics",
     status: "stuck",
     priority: "high",
   },
   {
-    title: "learn javascript4",
+    title: "learn javascript13",
     description: "Learn JAvascript basics",
     status: "done",
     priority: "high",
@@ -104,7 +104,6 @@ function drawTodos(todosToRender) {
   todoDiv.appendChild(todoHeader);
 
   const cards = document.createElement("div");
-  //cards.innerHTML = [];
   cards.setAttribute("class", "cards");
   todoDiv.appendChild(cards);
 
@@ -124,7 +123,11 @@ function drawTodos(todosToRender) {
   inProgressHeader.innerText = "In progress";
   inProgressDiv.appendChild(inProgressHeader);
 
-  inProgress.map((task) => {});
+  inProgress.map((task) => {
+    const newInProg = document.createElement("div");
+    inProgressDiv.appendChild(newInProg);
+    newInProg.innerText = task.title;
+    });
 
   const stuck = todosToRender.filter((todo) => {
     return todo.status == "stuck";
@@ -132,7 +135,11 @@ function drawTodos(todosToRender) {
   const stuckHeader = document.createElement("h2");
   stuckHeader.innerText = "Stuck";
   stuckDiv.appendChild(stuckHeader);
-  stuck.map((task) => {});
+  stuck.map((task) => {
+    const newStuck = document.createElement("div");
+    stuckDiv.appendChild(newStuck);
+    newStuck.innerText = task.title;
+  });
 
   const done = todosToRender.filter((todo) => {
     return todo.status == "done";
@@ -140,12 +147,16 @@ function drawTodos(todosToRender) {
   const doneHeader = document.createElement("h2");
   doneHeader.innerText = "Done";
   doneDiv.appendChild(doneHeader);
-  done.map((task) => {});
+  done.map((task) => {
+    const newDone = document.createElement("div");
+    doneDiv.appendChild(newDone);
+    newDone.innerText = task.title;
+  });
 }
 drawTodos(todos);
 
 function editFunction() {
-  todos[1].title = "im learning";
+  todos[2].title = "im learning";
   drawTodos(todos);
 }
 editFunction();

@@ -12,7 +12,6 @@ body {
 }
 .container {
   width: 1320px;
-  padding: 0px 16px;
   margin: auto;
   height: 100%;
   display: flex;

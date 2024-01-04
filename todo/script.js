@@ -99,9 +99,17 @@ function drawTodos(todosToRender) {
   container.appendChild(stuckDiv);
   container.appendChild(doneDiv);
 
+  const todoHead = document.createElement("div");
+  todoHead.setAttribute("class", "todoHead");
+  todoDiv.appendChild(todoHead);
+
   const todoHeader = document.createElement("h2");
   todoHeader.innerText = "To Do";
-  todoDiv.appendChild(todoHeader);
+  todoHead.appendChild(todoHeader);
+
+  const cardCount = document.createElement("h3");
+  cardCount.innerText = 0;
+  todoHead.appendChild(cardCount);
 
   const cards = document.createElement("div");
   cards.setAttribute("class", "cards");
@@ -158,10 +166,10 @@ function drawTodos(todosToRender) {
   addCardBtn.innerText = "+  Add card";
   todoDiv.appendChild(addCardBtn);
 
-  const editCardBtn = document.createElement("button");
-  editCardBtn.setAttribute("class", "editCardBtn");
-  editCardBtn.innerText = "Edit card";
-  todoDiv.appendChild(editCardBtn);
+  // const editCardBtn = document.createElement("button");
+  // editCardBtn.setAttribute("class", "editCardBtn");
+  // editCardBtn.innerText = "Edit card";
+  // todoDiv.appendChild(editCardBtn);
 
   addCardBtn.addEventListener("click", () => {});
   const addCardDiv = document.createElement("div");
@@ -221,28 +229,11 @@ function drawTodos(todosToRender) {
   addTaskBtn.innerText = "Add Task";
   modal.appendChild(addTaskBtn);
 
-  console.log(index + 1);
-
   addTaskBtn.addEventListener("click", () => {
-    if (statusSelect.value == "To do") {
-      cards.appendChild(addTaskDiv);
-    } else if (statusSelect.value == "In progress") {
-      inprogress.appendChild(addTaskDiv);
-    } else if (statusSelect.value == "Stuck") {
-      stuck.appendChild(addTaskDiv);
-    } else if (statusSelect.value == "Done") {
-      done.appendChild(addTaskDiv);
-    }
-    const newTitle = document.getElementById("titleInput").value;
-    const newDescription = document.getElementById("descriptionInput").value;
-    const newStatus = document.getElementById("statusSelect").value;
-    const newPriority = document.getElementById("priorityPriority").value;
-    todos.push({
-      title: newTitle,
-      description: newDescription,
-      status: newStatus,
-      priority: newPriority,
-    });
+    const card = document.createElement("div");
+    card.setAttribute("class", "card");
+    card.setAttribute("id", `${index + 1}`);
+    cards.appendChild(card);
   });
 }
 drawTodos(todos);

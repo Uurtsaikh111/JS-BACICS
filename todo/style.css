@@ -104,5 +104,9 @@ body {
   border-radius: 4px;
   width: 100%;
   height: 35px;
-  color: white;
+  color:black;
+}
+.todoHead{
+display: flex;
+justify-content: space-around;
 }

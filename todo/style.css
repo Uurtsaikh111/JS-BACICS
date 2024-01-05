@@ -50,6 +50,7 @@ body {
   display: flex;
   flex-direction: column;
   gap: 10px;
+  background-color: white;
 }
 .addCardDiv {
   width: 100%;
@@ -60,6 +61,7 @@ body {
   position: absolute;
   top: 0px;
   padding: 120px;
+  display: none;
 }
 .modal {
   width: 400px;
@@ -104,9 +106,12 @@ body {
   border-radius: 4px;
   width: 100%;
   height: 35px;
-  color:black;
+  color: black;
 }
-.todoHead{
-display: flex;
-justify-content: space-around;
+.todoHead {
+  display: flex;
+  justify-content: space-around;
+}
+.card {
+  background-color: bisque;
 }

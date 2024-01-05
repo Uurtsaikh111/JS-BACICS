@@ -107,7 +107,7 @@ function drawTodos(todosToRender) {
   todoHeader.innerText = "To Do";
   todoHead.appendChild(todoHeader);
 
-  const cardCount = document.createElement("h3");
+  const cardCount = document.createElement("h2");
   cardCount.innerText = 0;
   todoHead.appendChild(cardCount);
 
@@ -171,10 +171,13 @@ function drawTodos(todosToRender) {
   // editCardBtn.innerText = "Edit card";
   // todoDiv.appendChild(editCardBtn);
 
-  addCardBtn.addEventListener("click", () => {});
+  addCardBtn.addEventListener("click", () => {
+    addCardDiv.style.display = "block";
+  });
+
   const addCardDiv = document.createElement("div");
   addCardDiv.setAttribute("class", "addCardDiv");
-  root.appendChild(addCardDiv);
+  cards.appendChild(addCardDiv);
 
   const modal = document.createElement("div");
   modal.setAttribute("class", "modal");
@@ -197,16 +200,16 @@ function drawTodos(todosToRender) {
 
   const status = document.createElement("select");
   const statusTodo = document.createElement("option");
-  statusTodo.innerText = "To do";
+  statusTodo.innerText = "todo";
   status.appendChild(statusTodo);
   const statusInprogress = document.createElement("option");
-  statusInprogress.innerText = "In progress";
+  statusInprogress.innerText = "inProgress";
   status.appendChild(statusInprogress);
   const statusStuck = document.createElement("option");
-  statusStuck.innerText = "Stuck";
+  statusStuck.innerText = "stuck";
   status.appendChild(statusStuck);
   const statusDone = document.createElement("option");
-  statusDone.innerText = "Done";
+  statusDone.innerText = "done";
   status.appendChild(statusDone);
   modal.appendChild(status);
 
@@ -230,10 +233,44 @@ function drawTodos(todosToRender) {
   modal.appendChild(addTaskBtn);
 
   addTaskBtn.addEventListener("click", () => {
-    const card = document.createElement("div");
-    card.setAttribute("class", "card");
-    card.setAttribute("id", `${index + 1}`);
-    cards.appendChild(card);
+    // const card = document.createElement("div");
+    // card.setAttribute("class", "card");
+
+    // const addTitle = document.createElement("h1");
+    // addTitle.setAttribute("class", "addTitle");
+    // addTitle.innerText = title.value;
+
+    // const addDescription = document.createElement("p");
+    // addDescription.setAttribute("class", "addDescription");
+    // addDescription.innerText = description.value;
+
+    // const addPriority = document.createElement("p");
+    // addPriority.setAttribute("class", "addPriority");
+    // addPriority.innerText = priority.value;
+
+    // const addStatus = document.createElement("p");
+    // addStatus.setAttribute("class", "addStatus");
+    // addStatus.innerText = status.value;
+
+    // card.appendChild(addTitle);
+    // card.appendChild(addDescription);
+    // card.appendChild(addStatus);
+    // card.appendChild(addPriority);
+
+    //card.setAttribute("id", `${index + 1}`);
+    // if ((status.value = "todo")) {
+    //   todocards.appendChild(card);
+    // }
+
+    todos.push({
+      title: title.value,
+      description: description.value,
+      status: status.value,
+      priority: priority.value,
+    });
+    drawTodos(todos);
+    //console.log(todos);
+    addCardDiv.style.display = "none";
   });
 }
 drawTodos(todos);

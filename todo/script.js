@@ -75,6 +75,10 @@ let todos = [
 
 const container = document.getElementById("container");
 
+const deleteBtn = document.createElement("button");
+deleteBtn.setAttribute("class", "deleteBtn");
+deleteBtn.innerText = "delete";
+
 function drawTodos(todosToRender) {
   container.innerHTML = "";
 
@@ -113,6 +117,7 @@ function drawTodos(todosToRender) {
 
   const cards = document.createElement("div");
   cards.setAttribute("class", "cards");
+
   todoDiv.appendChild(cards);
 
   const futureDiv = todosToRender.filter((todo) => {
@@ -120,8 +125,28 @@ function drawTodos(todosToRender) {
   });
   futureDiv.map((task) => {
     const newTodo = document.createElement("div");
+    newTodo.setAttribute("class", "card");
+    const addTitle = document.createElement("h1");
+    addTitle.setAttribute("class", "addTitle");
+    addTitle.innerText = task.title;
+
+    const addDescription = document.createElement("p");
+    addDescription.setAttribute("class", "addDescription");
+    addDescription.innerText = task.description;
+
+    const addPriority = document.createElement("p");
+    addPriority.setAttribute("class", "addPriority");
+    addPriority.innerText = task.priority;
+
+    const buttons = document.createElement("div");
+    buttons.setAttribute("class", "buttons");
+
+    newTodo.appendChild(addTitle);
+    newTodo.appendChild(addDescription);
+    newTodo.appendChild(addPriority);
+    buttons.appendChild(deleteBtn);
+    newTodo.appendChild(buttons);
     cards.appendChild(newTodo);
-    newTodo.innerText = task.title + task.description + task.priority;
   });
 
   const inProgress = todosToRender.filter((todo) => {
@@ -133,8 +158,24 @@ function drawTodos(todosToRender) {
 
   inProgress.map((task) => {
     const newInProg = document.createElement("div");
+
+    newInProg.setAttribute("class", "card");
+    const addTitle = document.createElement("h1");
+    addTitle.setAttribute("class", "addTitle");
+    addTitle.innerText = task.title;
+
+    const addDescription = document.createElement("p");
+    addDescription.setAttribute("class", "addDescription");
+    addDescription.innerText = task.description;
+
+    const addPriority = document.createElement("p");
+    addPriority.setAttribute("class", "addPriority");
+    addPriority.innerText = task.priority;
+
+    newInProg.appendChild(addTitle);
+    newInProg.appendChild(addDescription);
+    newInProg.appendChild(addPriority);
     inProgressDiv.appendChild(newInProg);
-    newInProg.innerText = task.title;
   });
 
   const stuck = todosToRender.filter((todo) => {
@@ -145,8 +186,23 @@ function drawTodos(todosToRender) {
   stuckDiv.appendChild(stuckHeader);
   stuck.map((task) => {
     const newStuck = document.createElement("div");
+    newStuck.setAttribute("class", "card");
+    const addTitle = document.createElement("h1");
+    addTitle.setAttribute("class", "addTitle");
+    addTitle.innerText = task.title;
+
+    const addDescription = document.createElement("p");
+    addDescription.setAttribute("class", "addDescription");
+    addDescription.innerText = task.description;
+
+    const addPriority = document.createElement("p");
+    addPriority.setAttribute("class", "addPriority");
+    addPriority.innerText = task.priority;
+
+    newStuck.appendChild(addTitle);
+    newStuck.appendChild(addDescription);
+    newStuck.appendChild(addPriority);
     stuckDiv.appendChild(newStuck);
-    newStuck.innerText = task.title;
   });
 
   const done = todosToRender.filter((todo) => {
@@ -157,8 +213,22 @@ function drawTodos(todosToRender) {
   doneDiv.appendChild(doneHeader);
   done.map((task) => {
     const newDone = document.createElement("div");
+    newDone.setAttribute("class", "card");
+    const addTitle = document.createElement("h1");
+    addTitle.setAttribute("class", "addTitle");
+    addTitle.innerText = task.title;
+
+    const addDescription = document.createElement("p");
+    addDescription.setAttribute("class", "addDescription");
+    addDescription.innerText = task.description;
+
+    const addPriority = document.createElement("p");
+    addPriority.setAttribute("class", "addPriority");
+    addPriority.innerText = task.priority;
+    newDone.appendChild(addTitle);
+    newDone.appendChild(addDescription);
+    newDone.appendChild(addPriority);
     doneDiv.appendChild(newDone);
-    newDone.innerText = task.title;
   });
 
   const addCardBtn = document.createElement("button");
@@ -233,31 +303,7 @@ function drawTodos(todosToRender) {
   modal.appendChild(addTaskBtn);
 
   addTaskBtn.addEventListener("click", () => {
-    // const card = document.createElement("div");
-    // card.setAttribute("class", "card");
-
-    // const addTitle = document.createElement("h1");
-    // addTitle.setAttribute("class", "addTitle");
-    // addTitle.innerText = title.value;
-
-    // const addDescription = document.createElement("p");
-    // addDescription.setAttribute("class", "addDescription");
-    // addDescription.innerText = description.value;
-
-    // const addPriority = document.createElement("p");
-    // addPriority.setAttribute("class", "addPriority");
-    // addPriority.innerText = priority.value;
-
-    // const addStatus = document.createElement("p");
-    // addStatus.setAttribute("class", "addStatus");
-    // addStatus.innerText = status.value;
-
-    // card.appendChild(addTitle);
-    // card.appendChild(addDescription);
-    // card.appendChild(addStatus);
-    // card.appendChild(addPriority);
-
-    //card.setAttribute("id", `${index + 1}`);
+    // card.setAttribute("id", `${index + 1}`);
     // if ((status.value = "todo")) {
     //   todocards.appendChild(card);
     // }
@@ -269,7 +315,6 @@ function drawTodos(todosToRender) {
       priority: priority.value,
     });
     drawTodos(todos);
-    //console.log(todos);
     addCardDiv.style.display = "none";
   });
 }
@@ -277,6 +322,9 @@ drawTodos(todos);
 
 function editFunction() {
   todos[2].title = "im learning";
+  todos[1].description = "imthinkingyou";
+  todos[3].priority = "low";
+  todos[3].status = "todo";
   drawTodos(todos);
 }
 editFunction();

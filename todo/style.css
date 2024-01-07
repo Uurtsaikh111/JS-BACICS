@@ -18,7 +18,7 @@ body {
   gap: 30px;
 }
 .todoList {
-  width: 20%;
+  width: 30%;
   height: fit-content;
   display: flex;
   flex-direction: column;
@@ -51,6 +51,7 @@ body {
   flex-direction: column;
   gap: 10px;
   background-color: white;
+  width: fit-content;
 }
 .addCardDiv {
   width: 100%;
@@ -114,4 +115,14 @@ body {
 }
 .card {
   background-color: bisque;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+}
+
+.deleteBtn {
+  width: 50px;
+  border-radius: 3px;
+  background-color: aqua;
 }
